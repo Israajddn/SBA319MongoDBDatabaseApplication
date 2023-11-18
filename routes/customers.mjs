@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
 
   //UPDATE - update a document
 
-//update the post with a new comment
+//update the customer name
 router.patch("/:id", async (req, res) => {
     const query = { _id: new ObjectId(req.params.id) };
     const updates = {
@@ -47,7 +47,7 @@ router.patch("/:id", async (req, res) => {
     res.send(result).status(200);
   });
   
-  // DELETE - delete a restaurant
+  // DELETE - delete a customers
   
   router.delete('/:id', async(req, res)=>{
       const query = {_id: new ObjectId(req.params.id)};
