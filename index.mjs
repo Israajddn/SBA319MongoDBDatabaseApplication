@@ -4,7 +4,8 @@ const port = 3000;
 import customers from './routes/customers.mjs'; 
 
 //MIDDLEWARE
-app.use('/restaurants', restaurants);
+app.use(express.json()) // this allows is to use req.body
+app.use('/customers', customers);
 
 // Error Handling Middleware
 app.use((err, req, res, next)=>{
