@@ -33,4 +33,29 @@ router.get("/", async (req, res) => {
     res.send(result).status(204);
   });
 
+  //UPDATE - update a document
+
+//update the post with a new comment
+router.patch("/:id", async (req, res) => {
+    const query = { _id: new ObjectId(req.params.id) };
+    const updates = {
+      $push: { name: req.body },
+    };
+    const collection = await db.collection("customers");
+    const result = await collection.updateOne(query, updates);
+  
+    res.send(result).status(200);
+  });
+  
+  // DELETE - delete a restaurant
+  
+  router.delete('/:id', async(req, res)=>{
+      const query = {_id: new ObjectId(req.params.id)};
+  
+      const collection = db.collection('customers');
+      const result = await collection.deleteOne(query);
+  
+      res.send(result).status(200);
+  });
+
 export default router;
